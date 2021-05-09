@@ -28,7 +28,7 @@ class LoginBox extends StatelessWidget {
           children: [
             Center(
               child: Text(
-                "Entre e administre suas Leads",
+                "Entre e administre suas Leads 😄",
                 style: AppTextStyles.heading15,
               ),
             ),
