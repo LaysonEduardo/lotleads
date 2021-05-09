@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.lotleads">
+    package="com.layson.lotleads">
    <application
         android:label="LotLeads"
         android:icon="@mipmap/ic_launcher">

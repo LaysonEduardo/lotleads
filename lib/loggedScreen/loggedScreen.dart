@@ -2,7 +2,10 @@ import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
 
+// ignore: must_be_immutable
 class LoggedScreen extends StatelessWidget {
+  var funclogout;
+  LoggedScreen({required this.funclogout});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +25,7 @@ class LoggedScreen extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              onPressed: () {},
+              onPressed: funclogout,
             ),
           )
         ],

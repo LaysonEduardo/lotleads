@@ -12,12 +12,19 @@ import 'package:ndialog/ndialog.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatefulWidget {
+  var functionlogin;
+  LoginScreen({required this.functionlogin});
+
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _LoginScreenState createState() =>
+      _LoginScreenState(funclogin: functionlogin);
 }
 
 class _LoginScreenState extends State<LoginScreen> {
   var pageController = PageController(initialPage: 1);
+  var funclogin;
+
+  _LoginScreenState({required this.funclogin});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
           controller: pageController,
           children: [
             PasswordRecoverScreen(returnhome: returnHome),
-            LoginBox(),
+            LoginBox(flogin: funclogin),
             AnotherProblemWidget(
               returnhome: returnHome,
               returnhomedialog: returnhomedialog,

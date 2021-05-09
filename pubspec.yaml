@@ -1,5 +1,5 @@
 name: lotleads
-description: my leads  application.
+description: my leads application.
 version: 1.0.0+1
 
 environment:
@@ -13,7 +13,8 @@ dependencies:
   animated_button: ^0.2.0
   cupertino_icons: ^1.0.2
   ndialog: ^4.1.0
-    
+
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

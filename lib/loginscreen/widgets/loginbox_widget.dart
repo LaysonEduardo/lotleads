@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
 import 'package:lotleads/core/app_text_styles.dart';
 
+// ignore: must_be_immutable
 class LoginBox extends StatelessWidget {
+  var flogin;
+
+  LoginBox({required this.flogin});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -92,7 +97,7 @@ class LoginBox extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              onPressed: () {},
+              onPressed: flogin,
             )
           ],
         ),
