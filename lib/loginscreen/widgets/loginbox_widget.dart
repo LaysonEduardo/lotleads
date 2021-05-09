@@ -165,38 +165,106 @@ class _LoginBoxState extends State<LoginBox> {
           MaterialPageRoute(builder: (context) => LoggedScreen()),
         );
       }).catchError((err) {
-        NDialog(
-          dialogStyle: DialogStyle(titleDivider: true),
-          title: Text(
-            "Erro",
-            style: AppTextStyles.heading15,
-          ),
-          content: Text(
-            err.message,
-            style: AppTextStyles.heading,
-          ),
-          actions: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: AnimatedButton(
-                  width: 150,
-                  height: 50,
-                  color: AppColors.borderLogin,
-                  child: Text(
-                    'Ok',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+        if (err.code == 'wrong-password') {
+          NDialog(
+            dialogStyle: DialogStyle(titleDivider: true),
+            title: Text(
+              "Erro",
+              style: AppTextStyles.heading15,
+            ),
+            content: Text(
+              'O email ou a senha estão incorretos.',
+              style: AppTextStyles.heading,
+            ),
+            actions: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: AnimatedButton(
+                    width: 150,
+                    height: 50,
+                    color: AppColors.borderLogin,
+                    child: Text(
+                      'Ok',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
+                    onPressed: dialogDismiss,
                   ),
-                  onPressed: dialogDismiss,
                 ),
-              ),
-            )
-          ],
-        ).show(context);
+              )
+            ],
+          ).show(context);
+        } else if (err.code == 'user-not-found') {
+          NDialog(
+            dialogStyle: DialogStyle(titleDivider: true),
+            title: Text(
+              "Erro",
+              style: AppTextStyles.heading15,
+            ),
+            content: Text(
+              'Endereço de email não cadastrado.',
+              style: AppTextStyles.heading,
+            ),
+            actions: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: AnimatedButton(
+                    width: 150,
+                    height: 50,
+                    color: AppColors.borderLogin,
+                    child: Text(
+                      'Ok',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    onPressed: dialogDismiss,
+                  ),
+                ),
+              )
+            ],
+          ).show(context);
+        } else if (err.code == 'invalid-email') {
+          NDialog(
+            dialogStyle: DialogStyle(titleDivider: true),
+            title: Text(
+              "Erro",
+              style: AppTextStyles.heading15,
+            ),
+            content: Text(
+              'Email não existente.',
+              style: AppTextStyles.heading,
+            ),
+            actions: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: AnimatedButton(
+                    width: 150,
+                    height: 50,
+                    color: AppColors.borderLogin,
+                    child: Text(
+                      'Ok',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    onPressed: dialogDismiss,
+                  ),
+                ),
+              )
+            ],
+          ).show(context);
+        }
       });
     }
   }

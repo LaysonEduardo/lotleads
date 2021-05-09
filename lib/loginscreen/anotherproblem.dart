@@ -13,7 +13,7 @@ class AnotherProblemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 350,
+        height: 310,
         width: 300,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
@@ -56,7 +56,7 @@ class AnotherProblemWidget extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
+                child: TextFormField(
                   keyboardType: TextInputType.multiline,
                   decoration: InputDecoration(
                       border: InputBorder.none,

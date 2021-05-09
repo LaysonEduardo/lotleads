@@ -197,38 +197,73 @@ class _PasswordRecoverScreenState extends State<PasswordRecoverScreen> {
           ],
         ).show(context);
       }).catchError((err) {
-        NDialog(
-          dialogStyle: DialogStyle(titleDivider: true),
-          title: Text(
-            "Erro",
-            style: AppTextStyles.heading15,
-          ),
-          content: Text(
-            err.message,
-            style: AppTextStyles.heading,
-          ),
-          actions: [
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: AnimatedButton(
-                  width: 150,
-                  height: 50,
-                  color: AppColors.borderLogin,
-                  child: Text(
-                    'Ok',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+        if (err.code == 'invalid-email') {
+          NDialog(
+            dialogStyle: DialogStyle(titleDivider: true),
+            title: Text(
+              "Erro",
+              style: AppTextStyles.heading15,
+            ),
+            content: Text(
+              'Este endereço de email não existe.',
+              style: AppTextStyles.heading,
+            ),
+            actions: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: AnimatedButton(
+                    width: 150,
+                    height: 50,
+                    color: AppColors.borderLogin,
+                    child: Text(
+                      'Ok',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
+                    onPressed: dialogDismiss,
                   ),
-                  onPressed: dialogDismiss,
                 ),
-              ),
-            )
-          ],
-        ).show(context);
+              )
+            ],
+          ).show(context);
+        } else if (err.code == 'user-not-found') {
+          NDialog(
+            dialogStyle: DialogStyle(titleDivider: true),
+            title: Text(
+              "Erro",
+              style: AppTextStyles.heading15,
+            ),
+            content: Text(
+              'Endereço de Email não cadastrado.',
+              style: AppTextStyles.heading,
+            ),
+            actions: [
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: AnimatedButton(
+                    width: 150,
+                    height: 50,
+                    color: AppColors.borderLogin,
+                    child: Text(
+                      'Ok',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    onPressed: dialogDismiss,
+                  ),
+                ),
+              )
+            ],
+          ).show(context);
+        }
       });
     }
   }
