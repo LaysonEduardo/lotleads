@@ -16,7 +16,9 @@ class AppbarWidget extends PreferredSize {
               width: double.maxFinite,
               decoration: BoxDecoration(
                   gradient: AppGradients.linear,
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20)),
                   boxShadow: [
                     BoxShadow(
                       color: AppColors.borderLogin.withOpacity(0.3),

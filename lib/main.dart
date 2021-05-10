@@ -5,5 +5,6 @@ import 'package:lotleads/core/core.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(AppWidget());
 }
