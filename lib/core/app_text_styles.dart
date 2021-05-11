@@ -14,6 +14,11 @@ class AppTextStyles {
     fontSize: 20,
     fontWeight: FontWeight.w400,
   );
+  static final TextStyle title3 = GoogleFonts.nunito(
+    color: AppColors.borderLogin,
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
 
   static final TextStyle titleBold = GoogleFonts.notoSans(
     color: AppColors.white,

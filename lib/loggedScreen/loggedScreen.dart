@@ -10,6 +10,7 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 // ignore: must_be_immutable
 class LoggedScreen extends StatefulWidget {
+  LoggedScreen();
   @override
   _LoggedScreenState createState() => _LoggedScreenState();
 }
@@ -18,11 +19,27 @@ class _LoggedScreenState extends State<LoggedScreen> {
   FirebaseAuth auth = FirebaseAuth.instance;
   var pageController = PageController(initialPage: 0);
   var _currentIndex = 0;
-  var text = Text('teste');
+  FirebaseAuth user = FirebaseAuth.instance;
+  var displayname;
+  var displaysubtitle;
+
   @override
   Widget build(BuildContext context) {
+    if (user.currentUser!.displayName == null ||
+        user.currentUser!.displayName == '') {
+      displayname = 'Usuário';
+      displaysubtitle = 'Por favor, atualize seus dados no página perfil';
+    } else {
+      displayname = user.currentUser!.displayName;
+      displaysubtitle =
+          'Capture suas Leads e entre em teste com eles agora mesmo.';
+      print(user.currentUser!.displayName);
+    }
     return Scaffold(
-      appBar: AppbarLoggedWidget(),
+      appBar: AppbarLoggedWidget(
+        subtitle: displaysubtitle,
+        username: displayname,
+      ),
       backgroundColor: Colors.grey[300],
       body: PageView(
         physics: NeverScrollableScrollPhysics(),

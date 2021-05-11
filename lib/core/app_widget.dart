@@ -4,9 +4,14 @@ import 'package:lotleads/loggedScreen/loggedScreen.dart';
 import 'package:lotleads/loginscreen/loginscreen.dart';
 
 // ignore: must_be_immutable
-class AppWidget extends StatelessWidget {
-  var pageController = PageController(initialPage: 0);
+class AppWidget extends StatefulWidget {
+  @override
+  _AppWidgetState createState() => _AppWidgetState();
+}
+
+class _AppWidgetState extends State<AppWidget> {
   FirebaseAuth status = FirebaseAuth.instance;
+
   var page;
 
   @override
@@ -16,11 +21,7 @@ class AppWidget extends StatelessWidget {
     } else {
       page = LoggedScreen();
     }
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "LotLeads",
-      home: page,
-    );
+    return MaterialApp(home: page);
   }
 }
 
