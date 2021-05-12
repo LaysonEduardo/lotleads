@@ -21,7 +21,7 @@ class _AppWidgetState extends State<AppWidget> {
     } else {
       page = LoggedScreen();
     }
-    return MaterialApp(home: page);
+    return MaterialApp(debugShowCheckedModeBanner: false, home: page);
   }
 }
 

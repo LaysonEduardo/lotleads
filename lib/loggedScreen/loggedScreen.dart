@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
@@ -18,22 +19,41 @@ class LoggedScreen extends StatefulWidget {
 class _LoggedScreenState extends State<LoggedScreen> {
   FirebaseAuth auth = FirebaseAuth.instance;
   var pageController = PageController(initialPage: 0);
-  var _currentIndex = 0;
   FirebaseAuth user = FirebaseAuth.instance;
+
+  var _currentIndex = 0;
   var displayname;
   var displaysubtitle;
-
+  var usermail;
+  var signature;
+  var signatureStatus;
+  var signatureStatusText;
   @override
   Widget build(BuildContext context) {
     if (user.currentUser!.displayName == null ||
         user.currentUser!.displayName == '') {
       displayname = 'Usuário';
       displaysubtitle = 'Por favor, atualize seus dados no página perfil';
+      usermail = user.currentUser!.email;
     } else {
       displayname = user.currentUser!.displayName;
-      displaysubtitle =
-          'Capture suas Leads e entre em teste com eles agora mesmo.';
-      print(user.currentUser!.displayName);
+      displaysubtitle = 'Fique a vontade para capturar suas leads.';
+      usermail = user.currentUser!.email;
+    }
+    FirebaseFirestore.instance
+        .collection("payments")
+        .doc(user.currentUser!.uid)
+        .get()
+        .then((value) {
+      signature = value.data();
+      signatureStatus = signature['status'];
+    });
+
+    if (signatureStatus == true) {
+      signatureStatusText = 'Paga';
+    } else if (signatureStatus == false) {
+      signatureStatusText = 'Não Paga';
+      displaysubtitle = 'Pague sua assinatura para ter acesso as suas Leads.';
     }
     return Scaffold(
       appBar: AppbarLoggedWidget(
@@ -47,7 +67,11 @@ class _LoggedScreenState extends State<LoggedScreen> {
         children: [
           LeadsScreen(),
           HistoricScreen(),
-          ProfileScreen(),
+          ProfileScreen(
+            username: displayname,
+            usermail: usermail,
+            signature: signatureStatusText,
+          ),
           SettingScreen()
         ],
       ),
