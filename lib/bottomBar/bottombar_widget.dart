@@ -58,20 +58,6 @@ class BottomBarWidget extends StatelessWidget {
                     ),
                     onPressed: passwordrecover,
                   ),
-                  AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.white,
-                    child: Text(
-                      'Outro problema',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: AppColors.borderLogin,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    onPressed: functionHelper,
-                  )
                 ],
               ),
             )

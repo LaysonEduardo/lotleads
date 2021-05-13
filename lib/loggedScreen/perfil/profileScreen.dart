@@ -101,7 +101,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         height: 50,
                         color: AppColors.borderLogin,
                         child: Text(
-                          'Deslogar',
+                          'Sair',
                           style: TextStyle(
                             fontSize: 15,
                             color: Colors.white,
