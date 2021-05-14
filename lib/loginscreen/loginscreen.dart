@@ -10,7 +10,6 @@ import 'package:lotleads/core/app_text_styles.dart';
 import 'package:lotleads/loginscreen/passwordscreen.dart';
 import 'package:lotleads/loginscreen/widgets/loginbox_widget.dart';
 import 'package:ndialog/ndialog.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -22,7 +21,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var pageController = PageController(initialPage: 1);
-
   @override
   Widget build(BuildContext context) {
     return Stack(children: <Widget>[

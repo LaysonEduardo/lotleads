@@ -17,10 +17,8 @@ class LoggedScreen extends StatefulWidget {
 }
 
 class _LoggedScreenState extends State<LoggedScreen> {
-  FirebaseAuth auth = FirebaseAuth.instance;
   var pageController = PageController(initialPage: 0);
   FirebaseAuth user = FirebaseAuth.instance;
-
   var _currentIndex = 0;
   var displayname;
   var displaysubtitle;
@@ -28,6 +26,7 @@ class _LoggedScreenState extends State<LoggedScreen> {
   var signature;
   var signatureStatus;
   var signatureStatusText;
+
   @override
   Widget build(BuildContext context) {
     if (user.currentUser!.displayName == null ||
@@ -44,10 +43,12 @@ class _LoggedScreenState extends State<LoggedScreen> {
         .collection("payments")
         .doc(user.currentUser!.uid)
         .get()
-        .then((value) {
-      signature = value.data();
-      signatureStatus = signature['status'];
-    });
+        .then(
+      (value) {
+        signature = value.data();
+        signatureStatus = signature['status'];
+      },
+    );
 
     if (signatureStatus == true) {
       signatureStatusText = 'Paga';
@@ -56,25 +57,24 @@ class _LoggedScreenState extends State<LoggedScreen> {
       displaysubtitle = 'Pague sua assinatura para ter acesso as suas Leads.';
     }
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppbarLoggedWidget(
         subtitle: displaysubtitle,
         username: displayname,
       ),
-      backgroundColor: Colors.grey[300],
       body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: [
-          LeadsScreen(),
-          HistoricScreen(),
-          ProfileScreen(
-            username: displayname,
-            usermail: usermail,
-            signature: signatureStatusText,
-          ),
-          SettingScreen()
-        ],
-      ),
+          physics: NeverScrollableScrollPhysics(),
+          controller: pageController,
+          children: [
+            LeadsScreen(),
+            HistoricScreen(),
+            ProfileScreen(
+              username: displayname,
+              usermail: usermail,
+              signature: signatureStatusText,
+            ),
+            SettingScreen()
+          ]),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: AppColors.borderLogin,

@@ -52,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   Text(
                     '- Dados Cadastrados - ',
-                    style: AppTextStyles.body,
+                    style: AppTextStyles.heading15,
                   ),
                   SizedBox(
                     height: 20,
@@ -70,7 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Text(
                     '- Status da Assinatura -',
-                    style: AppTextStyles.body,
+                    style: AppTextStyles.heading15,
                   ),
                   Text(
                     widget.signature,
