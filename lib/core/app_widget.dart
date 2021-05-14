@@ -21,7 +21,13 @@ class _AppWidgetState extends State<AppWidget> {
     } else {
       page = LoggedScreen();
     }
-    return MaterialApp(debugShowCheckedModeBanner: false, home: page);
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: new ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: page,
+    );
   }
 }
 
