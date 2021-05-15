@@ -107,8 +107,8 @@ class _LoggedScreenState extends State<LoggedScreen> {
                 selectedColor: Colors.white,
                 unselectedColor: Colors.teal[700]),
             SalomonBottomBarItem(
-                icon: Icon(Icons.settings),
-                title: Text("Configurações"),
+                icon: Icon(Icons.help),
+                title: Text("Ajuda"),
                 selectedColor: Colors.white,
                 unselectedColor: Colors.teal[700]),
           ],
