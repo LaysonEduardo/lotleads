@@ -11,16 +11,31 @@ class LeadsScreen extends StatefulWidget {
   var leadName;
   var leadRegion;
   var results;
+
   @override
   _LeadsScreenState createState() => _LeadsScreenState();
 }
 
 class _LeadsScreenState extends State<LeadsScreen> {
+  var _refreshKey = GlobalKey<RefreshIndicatorState>();
   FirebaseAuth user = FirebaseAuth.instance;
   var phoneNumberGet;
   var phoneNumber;
+  var userSignature;
+  var userSignatureStatus;
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore.instance
+        .collection("payments")
+        .doc(user.currentUser!.uid)
+        .get()
+        .then(
+      (value) {
+        userSignature = value.data();
+        userSignatureStatus = userSignature['status'];
+      },
+    );
+
     return FutureBuilder<QuerySnapshot>(
         future: FirebaseFirestore.instance
             .collection('leads')
@@ -28,30 +43,51 @@ class _LeadsScreenState extends State<LeadsScreen> {
             .where('status', isEqualTo: false)
             .get(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (userSignatureStatus == false) {
+            return ListView(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: LeadsFailWidget(
+                    message: 'Assinatura Bloqueada',
+                  ),
+                )
+              ],
+            );
+          } else if (snapshot.hasData) {
             final List<DocumentSnapshot> documents = snapshot.data!.docs;
             if (documents.isEmpty) {
               return ListView(
                 children: [
-                  LeadsFailWidget(
-                    message: 'Sem Leads disponíveis no momento',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: LeadsFailWidget(
+                      message: 'Sem Leads disponíveis no momento',
+                    ),
                   )
                 ],
               );
             } else {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: ListView(
-                    children: documents
-                        .map(
-                          (doc) => LeadsWidget(
-                            leadName: doc['leadName'],
-                            leadRegion: doc['leadRegion'],
-                            whatsPhone: doc['leadPhone'],
-                            docId: doc['did'],
-                          ),
-                        )
-                        .toList()),
+                child: RefreshIndicator(
+                  key: _refreshKey,
+                  onRefresh: _pullRefresh,
+                  child: ListView(
+                      children: documents
+                          .map(
+                            (doc) => LeadsWidget(
+                              leadName: doc['leadName'],
+                              leadRegion: doc['leadRegion'],
+                              whatsPhone: doc['leadPhone'],
+                              docId: doc['did'],
+                              reload: () {
+                                _refreshKey.currentState!.show();
+                              },
+                            ),
+                          )
+                          .toList()),
+                ),
               );
             }
           } else {
@@ -64,5 +100,10 @@ class _LeadsScreenState extends State<LeadsScreen> {
             );
           }
         });
+  }
+
+  Future<void> _pullRefresh() async {
+    await Future.delayed(Duration(seconds: 2));
+    setState(() {});
   }
 }

@@ -7,14 +7,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
 // ignore: must_be_immutable
-class LeadsWidget extends StatelessWidget {
+class LeadsHistoricWidget extends StatelessWidget {
   var leadName;
   var leadRegion;
   var whatsPhone;
   var docId;
   var reload;
 
-  LeadsWidget(
+  LeadsHistoricWidget(
       {required this.leadName,
       required this.leadRegion,
       required this.whatsPhone,
@@ -79,7 +79,7 @@ class LeadsWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Capturar',
+                            'Abrir',
                             style: AppTextStyles.bodylightWhite,
                           )
                         ],
