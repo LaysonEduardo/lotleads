@@ -21,8 +21,6 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  var userpicture;
-
   TextEditingController namecontroller = TextEditingController();
 
   @override

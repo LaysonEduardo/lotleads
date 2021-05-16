@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
 import 'package:lotleads/core/app_text_styles.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 
@@ -13,6 +13,7 @@ class LeadsWidget extends StatelessWidget {
   var whatsPhone;
   var docId;
   var reload;
+  var userName;
 
   LeadsWidget(
       {required this.leadName,
@@ -22,6 +23,9 @@ class LeadsWidget extends StatelessWidget {
       required this.reload});
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth user = FirebaseAuth.instance;
+    userName = user.currentUser!.displayName;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Container(
@@ -98,7 +102,12 @@ class LeadsWidget extends StatelessWidget {
   launchwhatsapp() async {
     final link = WhatsAppUnilink(
       phoneNumber: whatsPhone,
-      text: 'Olá $leadName, tudo bem?',
+      text: 'Olá $leadName, como vai?\n'
+          'Meu nome é $userName e recebi seu cadastro de interesse em nosso loteamento.\n\n'
+          'Gostaria de saber qual é o seu principal interesse neste momento\n\n'
+          '🟢 Lazer e Tranquilidade para sua família e amigos.\n'
+          '🟢 Morar em uma área repleta de natureza e com qualidade de vida.\n'
+          '🟢 Investir com segurança em um ímovel.\n',
     );
     await launch('$link');
     CollectionReference users = FirebaseFirestore.instance.collection('leads');
