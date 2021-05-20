@@ -25,7 +25,7 @@ class _HistoricScreen extends State<HistoricScreen> {
   Widget build(BuildContext context) {
     var _refreshKey = GlobalKey<RefreshIndicatorState>();
     FirebaseFirestore.instance
-        .collection("payments")
+        .collection("users")
         .doc(user.currentUser!.uid)
         .get()
         .then(

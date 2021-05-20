@@ -40,7 +40,7 @@ class _LoggedScreenState extends State<LoggedScreen> {
       usermail = user.currentUser!.email;
     }
     FirebaseFirestore.instance
-        .collection("payments")
+        .collection("users")
         .doc(user.currentUser!.uid)
         .get()
         .then(

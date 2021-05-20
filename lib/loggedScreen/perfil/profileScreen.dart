@@ -1,4 +1,3 @@
-import 'package:animated_button/animated_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
@@ -80,34 +79,68 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      AnimatedButton(
-                        width: 150,
-                        height: 50,
-                        color: AppColors.borderLogin,
-                        child: Text(
-                          'Atualizar Dados',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                      InkWell(
+                        onTap: updateprofile,
+                        child: Ink(
+                          width: 150,
+                          height: 50,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: AppColors.borderLogin,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.grey.withOpacity(0.3),
+                                    spreadRadius: 1,
+                                    blurRadius: 7,
+                                    offset: Offset(
+                                        0, 3), // changes position of shadow
+                                  ),
+                                ]),
+                            child: Center(
+                              child: Text(
+                                'Atualizar Dados',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                        onPressed: updateprofile,
                       ),
-                      AnimatedButton(
-                        width: 150,
-                        height: 50,
-                        color: AppColors.borderLogin,
-                        child: Text(
-                          'Sair',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
+                      InkWell(
+                        onTap: logoutfunction,
+                        child: Ink(
+                          width: 150,
+                          height: 50,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: AppColors.borderLogin,
+                                borderRadius: BorderRadius.circular(20),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.grey.withOpacity(0.3),
+                                    spreadRadius: 1,
+                                    blurRadius: 7,
+                                    offset: Offset(
+                                        0, 3), // changes position of shadow
+                                  ),
+                                ]),
+                            child: Center(
+                              child: Text(
+                                'Sair',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
-                        onPressed: logoutfunction,
-                      )
+                      ),
                     ],
                   )
                 ],
@@ -166,34 +199,66 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              AnimatedButton(
-                width: 120,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Salvar',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
+              InkWell(
+                onTap: saveName,
+                child: Ink(
+                  width: 100,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Salvar',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: saveName,
               ),
-              AnimatedButton(
-                width: 120,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Cancelar',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
+              InkWell(
+                onTap: dialogDismiss,
+                child: Ink(
+                  width: 100,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Cancelar',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: dialogDismiss,
-              )
+              ),
             ],
           ),
         ),
@@ -228,20 +293,37 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                AnimatedButton(
-                  width: 120,
-                  height: 50,
-                  color: AppColors.borderLogin,
-                  child: Text(
-                    'Ok',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+                InkWell(
+                  onTap: dialogDismiss,
+                  child: Ink(
+                    width: 150,
+                    height: 50,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: AppColors.borderLogin,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.grey.withOpacity(0.3),
+                              spreadRadius: 1,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ]),
+                      child: Center(
+                        child: Text(
+                          'Ok',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  onPressed: dialogDismiss,
-                )
+                ),
               ],
             ),
           ),
@@ -272,19 +354,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  AnimatedButton(
-                    width: 120,
-                    height: 50,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Ok',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    onPressed: () {
+                  InkWell(
+                    onTap: () {
                       FirebaseAuth auth = FirebaseAuth.instance;
                       auth.signOut().then(
                         (res) {
@@ -296,6 +367,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         },
                       );
                     },
+                    child: Ink(
+                      width: 120,
+                      height: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Ok',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -322,19 +421,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    AnimatedButton(
-                      width: 120,
-                      height: 50,
-                      color: AppColors.borderLogin,
-                      child: Text(
-                        'Ok',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
+                    InkWell(
+                      onTap: dialogDismiss,
+                      child: Ink(
+                        width: 150,
+                        height: 50,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.borderLogin,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.grey.withOpacity(0.3),
+                                  spreadRadius: 1,
+                                  blurRadius: 7,
+                                  offset: Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ]),
+                          child: Center(
+                            child: Text(
+                              'Ok',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                      onPressed: dialogDismiss,
                     )
                   ],
                 ),
@@ -364,19 +480,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              AnimatedButton(
-                width: 120,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Sim',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                onPressed: () {
+              InkWell(
+                onTap: () {
                   FirebaseAuth auth = FirebaseAuth.instance;
                   auth.signOut().then(
                     (res) {
@@ -388,20 +493,63 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                   );
                 },
-              ),
-              AnimatedButton(
-                width: 120,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Não',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
+                child: Ink(
+                  width: 120,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Sim',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: dialogDismiss,
+              ),
+              InkWell(
+                onTap: dialogDismiss,
+                child: Ink(
+                  width: 150,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Não',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
               )
             ],
           ),

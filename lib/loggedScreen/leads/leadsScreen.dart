@@ -26,7 +26,7 @@ class _LeadsScreenState extends State<LeadsScreen> {
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore.instance
-        .collection("payments")
+        .collection("users")
         .doc(user.currentUser!.uid)
         .get()
         .then(
