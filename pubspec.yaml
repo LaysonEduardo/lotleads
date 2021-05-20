@@ -9,7 +9,6 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.0.0  
-  animated_button: ^0.2.0
   cupertino_icons: ^1.0.2
   ndialog: ^4.1.0
   firebase_auth: ^1.1.3

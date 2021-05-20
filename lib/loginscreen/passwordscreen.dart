@@ -1,4 +1,3 @@
-import 'package:animated_button/animated_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
@@ -87,33 +86,68 @@ class _PasswordRecoverScreenState extends State<PasswordRecoverScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  AnimatedButton(
-                    width: 130,
-                    height: 40,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Recuperar Senha',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  InkWell(
+                    onTap: passwordrecovery,
+                    child: Ink(
+                      width: 130,
+                      height: 40,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Recuperar Senha',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: passwordrecovery,
                   ),
-                  AnimatedButton(
-                    width: 130,
-                    height: 40,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Cancelar',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  InkWell(
+                    onTap: widget.returnhome,
+                    child: Ink(
+                      width: 130,
+                      height: 40,
+                      color: AppColors.borderLogin,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Cancelar',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: widget.returnhome,
                   )
                 ],
               )
@@ -142,19 +176,35 @@ class _PasswordRecoverScreenState extends State<PasswordRecoverScreen> {
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: AnimatedButton(
-                width: 150,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Ok',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
+              child: InkWell(
+                onTap: dialogDismiss,
+                child: Ink(
+                  width: 150,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Ok',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: dialogDismiss,
               ),
             ),
           )
@@ -178,19 +228,36 @@ class _PasswordRecoverScreenState extends State<PasswordRecoverScreen> {
             Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
-                child: AnimatedButton(
-                  width: 150,
-                  height: 50,
-                  color: AppColors.borderLogin,
-                  child: Text(
-                    'Ok',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
+                child: InkWell(
+                  onTap: dialogDismiss,
+                  child: Ink(
+                    width: 150,
+                    height: 50,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: AppColors.borderLogin,
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: AppColors.grey.withOpacity(0.3),
+                              spreadRadius: 1,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ]),
+                      child: Center(
+                        child: Text(
+                          'Ok',
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                  onPressed: dialogDismiss,
                 ),
               ),
             )
@@ -212,19 +279,36 @@ class _PasswordRecoverScreenState extends State<PasswordRecoverScreen> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Ok',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  child: InkWell(
+                    onTap: dialogDismiss,
+                    child: Ink(
+                      width: 150,
+                      height: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Ok',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: dialogDismiss,
                   ),
                 ),
               )
@@ -245,19 +329,37 @@ class _PasswordRecoverScreenState extends State<PasswordRecoverScreen> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Ok',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  child: InkWell(
+                    onTap: dialogDismiss,
+                    child: Ink(
+                      width: 150,
+                      height: 50,
+                      color: AppColors.borderLogin,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Ok',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: dialogDismiss,
                   ),
                 ),
               )

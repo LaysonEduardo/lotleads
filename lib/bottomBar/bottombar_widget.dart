@@ -1,4 +1,3 @@
-import 'package:animated_button/animated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:lotleads/core/app_colors.dart';
 import 'package:lotleads/core/app_gradients.dart';
@@ -44,19 +43,27 @@ class BottomBarWidget extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.white,
-                    child: Text(
-                      'Esqueci a senha',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: AppColors.borderLogin,
-                        fontWeight: FontWeight.w500,
+                  InkWell(
+                    onTap: passwordrecover,
+                    child: Ink(
+                      width: 150,
+                      height: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.circular(20)),
+                        child: Center(
+                          child: Text(
+                            'Esqueci a senha',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: AppColors.borderLogin,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: passwordrecover,
                   ),
                 ],
               ),

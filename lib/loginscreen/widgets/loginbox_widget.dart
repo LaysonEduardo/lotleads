@@ -1,4 +1,3 @@
-import 'package:animated_button/animated_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -100,19 +99,35 @@ class _LoginBoxState extends State<LoginBox> {
               SizedBox(
                 height: 20,
               ),
-              AnimatedButton(
-                width: 150,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Entrar',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
+              InkWell(
+                onTap: fblogin,
+                child: Ink(
+                  width: 150,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Entrar',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: fblogin,
               )
             ],
           ),
@@ -137,19 +152,35 @@ class _LoginBoxState extends State<LoginBox> {
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: AnimatedButton(
-                width: 150,
-                height: 50,
-                color: AppColors.borderLogin,
-                child: Text(
-                  'Ok',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
+              child: InkWell(
+                onTap: dialogDismiss,
+                child: Ink(
+                  width: 150,
+                  height: 50,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.borderLogin,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 7,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ]),
+                    child: Center(
+                      child: Text(
+                        'Ok',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-                onPressed: dialogDismiss,
               ),
             ),
           )
@@ -180,19 +211,36 @@ class _LoginBoxState extends State<LoginBox> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Ok',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  child: InkWell(
+                    onTap: dialogDismiss,
+                    child: Ink(
+                      width: 150,
+                      height: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Ok',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: dialogDismiss,
                   ),
                 ),
               )
@@ -213,19 +261,36 @@ class _LoginBoxState extends State<LoginBox> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Ok',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  child: InkWell(
+                    onTap: dialogDismiss,
+                    child: Ink(
+                      width: 150,
+                      height: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Ok',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: dialogDismiss,
                   ),
                 ),
               )
@@ -246,19 +311,36 @@ class _LoginBoxState extends State<LoginBox> {
               Center(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  child: AnimatedButton(
-                    width: 150,
-                    height: 50,
-                    color: AppColors.borderLogin,
-                    child: Text(
-                      'Ok',
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                  child: InkWell(
+                    onTap: dialogDismiss,
+                    child: Ink(
+                      width: 150,
+                      height: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: AppColors.borderLogin,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: AppColors.grey.withOpacity(0.3),
+                                spreadRadius: 1,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 3), // changes position of shadow
+                              ),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            'Ok',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
-                    onPressed: dialogDismiss,
                   ),
                 ),
               )

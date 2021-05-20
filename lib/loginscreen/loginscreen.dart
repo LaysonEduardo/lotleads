@@ -1,5 +1,3 @@
-import 'package:animated_button/animated_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_browser/flutter_web_browser.dart';
 import 'package:line_icons/line_icons.dart';
@@ -42,16 +40,22 @@ class _LoginScreenState extends State<LoginScreen> {
           passwordrecover: passwordrecover,
         ),
         floatingActionButton: Container(
-            child: AnimatedButton(
-          onPressed: helpdialog,
-          height: 50,
-          width: 50,
-          color: AppColors.borderLogin,
-          child: Icon(
-            Icons.help,
-            color: AppColors.white,
+          child: InkWell(
+            borderRadius: BorderRadius.circular(50),
+            onTap: helpdialog,
+            child: Ink(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                  color: AppColors.borderLogin,
+                  borderRadius: BorderRadius.circular(50)),
+              child: Icon(
+                Icons.help,
+                color: AppColors.white,
+              ),
+            ),
           ),
-        )),
+        ),
       ),
     ]);
   }
@@ -137,7 +141,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextSpan(
                           text:
-                              'LotLeads tem o propósito de fazer com que o gerenciamento de leads seja mais prático.',
+                              'LotLeads tem o propósito de fazer com que o gerenciamento de cadastros capturados de redes sociais e semelhantes seja mais prático.',
                           style: AppTextStyles.heading),
                     ],
                   ),
@@ -158,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextSpan(
                           text:
-                              ' Inicialmente o Lotleads esta limitado a quem realiza campanhas com a página Maravilhas de Pardinho.',
+                              ' Inicialmente o Lotleads esta limitado e em fase de testes. \nCaso queira fazer parte é só entrar em contato com nosso suporte.',
                           style: AppTextStyles.heading),
                     ],
                   ),
@@ -179,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       TextSpan(
                         text:
-                            ' Caso queira um método de contato com o desenvolvedor para sanar dúvidas, é só escolher um de acordo com os botões abaixo.',
+                            ' Deseja entrar em contato com nosso suporte? é só escolher um dos métodos abaixo.',
                         style: AppTextStyles.heading,
                       ),
                     ],
@@ -214,33 +218,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   height: 40,
                   width: 100,
-                  child: Icon(
-                    LineIcons.envelope,
-                    color: AppColors.white,
-                  ),
-                ),
-              ),
-              InkWell(
-                borderRadius: BorderRadius.circular(20),
-                onTap: launchGithub,
-                child: Ink(
-                  decoration: BoxDecoration(
-                    color: AppColors.grey,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 5), // changes position of shadow
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        LineIcons.envelope,
+                        color: AppColors.white,
+                      ),
+                      Text(
+                        'Email',
+                        style: AppTextStyles.bodylightGrey,
                       ),
                     ],
-                  ),
-                  height: 40,
-                  width: 100,
-                  child: Icon(
-                    LineIcons.github,
-                    color: AppColors.white,
                   ),
                 ),
               ),
@@ -248,25 +237,33 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.circular(20),
                 onTap: launchWhatsApp,
                 child: Ink(
-                  decoration: BoxDecoration(
-                    color: AppColors.darkGreen,
-                    borderRadius: BorderRadius.circular(20),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.3),
-                        spreadRadius: 2,
-                        blurRadius: 7,
-                        offset: Offset(0, 5), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  height: 40,
-                  width: 100,
-                  child: Icon(
-                    LineIcons.whatSApp,
-                    color: AppColors.white,
-                  ),
-                ),
+                    decoration: BoxDecoration(
+                      color: AppColors.darkGreen,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                          offset: Offset(0, 5), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: 40,
+                    width: 120,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          LineIcons.whatSApp,
+                          color: AppColors.white,
+                        ),
+                        Text(
+                          'Whatsapp',
+                          style: AppTextStyles.bodylightGrey,
+                        ),
+                      ],
+                    )),
               ),
             ],
           ),
