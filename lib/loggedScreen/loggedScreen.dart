@@ -26,6 +26,8 @@ class _LoggedScreenState extends State<LoggedScreen> {
   var signature;
   var signatureStatus;
   var signatureStatusText;
+  var team;
+  var teamText;
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,16 @@ class _LoggedScreenState extends State<LoggedScreen> {
       (value) {
         signature = value.data();
         signatureStatus = signature['status'];
+      },
+    );
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user.currentUser!.uid)
+        .get()
+        .then(
+      (value) {
+        team = value.data();
+        teamText = team['team'];
       },
     );
 
@@ -72,6 +84,7 @@ class _LoggedScreenState extends State<LoggedScreen> {
               username: displayname,
               usermail: usermail,
               signature: signatureStatusText,
+              team: teamText,
             ),
             SettingScreen()
           ]),

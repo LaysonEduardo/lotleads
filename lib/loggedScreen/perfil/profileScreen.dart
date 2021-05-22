@@ -10,10 +10,13 @@ class ProfileScreen extends StatefulWidget {
   var username;
   var usermail;
   var signature;
-  ProfileScreen(
-      {required this.username,
-      required this.usermail,
-      required this.signature});
+  var team;
+  ProfileScreen({
+    required this.username,
+    required this.usermail,
+    required this.signature,
+    required this.team,
+  });
 
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
@@ -71,6 +74,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Text(
                     widget.signature,
+                    style: AppTextStyles.body20,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    '- Time -',
+                    style: AppTextStyles.heading15,
+                  ),
+                  Text(
+                    widget.team,
                     style: AppTextStyles.body20,
                   ),
                   SizedBox(
